@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kshitij Tiwari - Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #614E41, #4a3b31);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card-shadow {
+            transition: all 0.3s ease;
+        }
+        
+        .card-shadow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .custom-button {
+            background: linear-gradient(90deg, #614E41, #4a3b31);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .custom-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-container {
+            border-left: 2px solid #614E41;
+            padding-left: 20px;
+            margin-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #614E41;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, #614E41, #4a3b31);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .projects-container {
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #4a3b31 #614E41;
+            padding-bottom: 20px;
+        }
+
+        .projects-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .projects-container::-webkit-scrollbar-track {
+            background: #614E41;
+        }
+
+        .projects-container::-webkit-scrollbar-thumb {
+            background-color: #4a3b31;
+            border-radius: 20px;
+        }
+
+     
+
+        .horizontal-scroll {
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #4a3b31 #614E41;
+            padding-bottom: 20px;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar-track {
+            background: #614E41;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar-thumb {
+            background-color: #4a3b31;
+            border-radius: 20px;
+        }
+
+      
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        .project-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        
+        .certification-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            scroll-snap-type: x mandatory;
+        }
+        .certification-card {
+            flex: 0 0 400px;
+            scroll-snap-align: start;
+            height: 280px; 
+            display: flex;
+            flex-direction: column;
+        }
+        .certification-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+
+        .white-text {
+            color: white;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">KSHITIJ</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link"><b>Home</b></a>
+                    <a href="#about" class="nav-link"><b>About</b></a>
+                    <a href="#skills" class="nav-link"><b>Skills</b></a>
+                    <a href="#projects" class="nav-link"><b>Projects</b></a>
+                    <a href="#certifications" class="nav-link"><b>Certifications</b></a>
+                    <a href="#contact" class="nav-link"><b>Contact</b></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section  -->
+    <section id="home" class="min-h-screen flex items-center pt-20 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div class="container mx-auto px-6 py-20">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <h1 class="text-6xl font-bold mb-4 text-gray-800">Hi, I'm Kshitij Tiwari</h1>
+                    <div class="text-2xl text-gray-600 mb-6">
+                        I'm a <span id="typed-text"></span>
+                    </div>
+                    <p class="text-gray-600 mb-8">Passionate about creating innovative solutions through technology</p>
+                    <a href="#contact" class="custom-button px-8 py-3 rounded-lg inline-block">Get in touch</a>
+                </div>
+                <div class="md:w-1/2 mt-10 md:mt-0" data-aos="fade-left">
+                    <img src="images/Kshitij Pfp.png" alt="Kshitij Tiwari" class="rounded-full shadow-xl mx-auto hover:transform hover:scale-105 transition-transform duration-300" width="400" height="400">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section  -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">About Me</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="timeline-container">
+                    <div class="timeline-item relative mb-8" data-aos="fade-up">
+                        <h3 class="text-2xl font-bold text-gray-800">Technology Professional</h3>
+                        <p class="text-gray-600 mt-2">Dynamic and driven technology professional with a solid foundation in software development and a passion for innovation.</p>
+                    </div>
+                    <div class="timeline-item relative mb-8" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-2xl font-bold text-gray-800">Software Developer</h3>
+                        <p class="text-gray-600 mt-2">Skilled in programming languages, web development frameworks, and data analysis.</p>
+                    </div>
+                    <div class="timeline-item relative" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-2xl font-bold text-gray-800">Continuous Learner</h3>
+                        <p class="text-gray-600 mt-2">Committed to continuous learning and exploring emerging technologies to develop impactful, scalable solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                
+                <!-- C Programming -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center card-shadow" data-aos="flip-left" data-aos-delay="0">
+                    <div class="h-20 flex items-center justify-center mb-4">
+                        <img src="images/C.png" alt="C" class="w-16 h-16 mx-auto object-contain hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">C</h3>
+                </div>
+    
+                <!-- Python -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center card-shadow" data-aos="flip-left" data-aos-delay="100">
+                    <div class="h-20 flex items-center justify-center mb-4">
+                        <img src="images/python.jpeg" alt="Python" class="w-16 h-16 mx-auto object-contain hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Python</h3>
+                </div>
+    
+                <!-- Java -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center card-shadow" data-aos="flip-left" data-aos-delay="200">
+                    <div class="h-20 flex items-center justify-center mb-4">
+                        <img src="images/Java.png" alt="Java" class="w-16 h-16 mx-auto object-contain hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Java</h3>
+                </div>
+    
+                <!-- JavaScript -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center card-shadow" data-aos="flip-left" data-aos-delay="300">
+                    <div class="h-20 flex items-center justify-center mb-4">
+                        <img src="images/Java Script.png" alt="JavaScript" class="w-16 h-16 mx-auto object-contain hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">JavaScript</h3>
+                </div>
+    
+                <!-- HTML/CSS -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center card-shadow" data-aos="flip-left" data-aos-delay="400">
+                    <div class="h-20 flex items-center justify-center mb-4">
+                        <img src="images/HTML CSS.png" alt="HTML/CSS" class="w-16 h-16 mx-auto object-contain hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">HTML/CSS</h3>
+                </div>
+    
+                <!-- Angular -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center card-shadow" data-aos="flip-left" data-aos-delay="500">
+                    <div class="h-20 flex items-center justify-center mb-4">
+                        <img src="images/Angular.png" alt="Angular" class="w-16 h-16 mx-auto object-contain hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Angular</h3>
+                </div>
+    
+                <!-- SQL -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center card-shadow" data-aos="flip-left" data-aos-delay="600">
+                    <div class="h-20 flex items-center justify-center mb-4">
+                        <img src="images/SQL.png" alt="SQL" class="w-16 h-16 mx-auto object-contain hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">SQL</h3>
+                </div>
+    
+                <!-- PHP -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center card-shadow" data-aos="flip-left" data-aos-delay="700">
+                    <div class="h-20 flex items-center justify-center mb-4">
+                        <img src="images/php.png" alt="PHP" class="w-16 h-16 mx-auto object-contain hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">PHP</h3>
+                </div>
+    
+                <!-- Cyber Security -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center card-shadow" data-aos="flip-left" data-aos-delay="800">
+                    <div class="h-20 flex items-center justify-center mb-4">
+                        <img src="images/Cyber Security.png" alt="Cyber Security" class="w-16 h-16 mx-auto object-contain hover:scale-110  transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Cyber Security</h3>
+                </div>
+    
+                <!-- Azure -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center card-shadow" data-aos="flip-left" data-aos-delay="900">
+                    <div class="h-20 flex items-center justify-center mb-4">
+                        <img src="images/Azure.png" alt="Azure" class="w-16 h-16 mx-auto object-contain hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Azure</h3>
+                </div>
+    
+                <!-- IoT -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center card-shadow" data-aos="flip-left" data-aos-delay="1000">
+                    <div class="h-20 flex items-center justify-center mb-4">
+                        <img src="images/IoT.jpeg" alt="IoT" class="w-16 h-16 mx-auto object-contain hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">IoT</h3>
+                </div>
+    
+                <!-- Microsoft Excel -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center card-shadow" data-aos="flip-left" data-aos-delay="1100">
+                    <div class="h-20 flex items-center justify-center mb-4">
+                        <img src="images/Excel.png" alt="Microsoft Excel" class="w-16 h-16 mx-auto object-contain hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Microsoft Excel</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Projects Section with Updated Layout -->
+     <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 gradient-text">Projects</h2>
+            <div class="project-grid">
+                
+                <!-- Stock Price Tracker -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-shadow">
+                    <div class="h-48 overflow-hidden rounded-lg mb-4">
+                        <img src="images/sort_stocks.png" alt="Stock Price Tracker" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Stock Price Tracker</h3>
+                    <p class="mb-4">Real-time stock analysis platform using React and Firebase. Features live updates, sorting, and comparison of stocks with modular architecture for scalability and performance.Also automated using Selenium.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">React</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Firebase</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">JavaScript</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Selenium</span>
+                    </div>
+                    <a href="https://github.com/kshitij-1112/Stock-Price-Tracker" class="custom-button px-6 py-2 rounded-lg inline-block mt-auto">View Project</a>
+                </div>
+
+                <!-- Employee Cab Management System -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-shadow">
+                    <div class="h-48 overflow-hidden rounded-lg mb-4">
+                        <img src="images/cab.png" alt="Employee Cab Management System" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Employee Cab Management System</h3>
+                    <p class="mb-4">Database-driven web application for managing employee transportation logistics. Utilizes JavaScript, HTML, PHP, and MySQL and for efficient scheduling and route optimization.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">PHP</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">MySQL</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">JavaScript</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Xampp</span>
+                    </div>
+                    <a href="https://github.com/kshitij-1112/Employee-Cab-Management-System" class="custom-button px-6 py-2 rounded-lg inline-block mt-auto">View Project</a>
+                </div>
+
+                <!-- RCB Website -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-shadow">
+                    <div class="h-48 overflow-hidden rounded-lg mb-4">
+                        <img src="images/rcb.png" alt="RCB Website" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">RCB Website</h3>
+                    <p class="mb-4">Fan-focused website built using HTML and CSS and JavaScript for IPL Team RCB. Features updates, player statistics, match results, and interactive fan polls for enhanced engagement.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">HTML</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">CSS</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">JavaScript</span>
+                    </div>
+                    <a href="https://github.com/kshitij-1112/RCB-Website" class="custom-button px-6 py-2 rounded-lg inline-block mt-auto">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 gradient-text">Certifications</h2>
+            <div class="certification-scroll">
+                
+                
+                <div class="certification-card bg-white p-6 rounded-lg shadow-md card-shadow">
+                    <div class="h-16 flex items-center justify-center mb-4">
+                        <img src="images/microsoft.png" alt="Microsoft" class="h-12">
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="text-lg font-bold mb-2 text-center line-clamp-2">Azure AI Fundamentals</h3>
+                        <p class="text-center mb-4">Microsoft</p>
+                        <a href="https://learn.microsoft.com/api/credentials/share/en-us/62908834/6D78834767B97ABC?sharingId" 
+                           class="custom-button px-4 py-2 rounded-lg w-full text-center block text-sm mt-auto" 
+                           target="_blank">View Certificate</a>
+                    </div>
+                </div>
+
+                <div class="certification-card bg-white p-6 rounded-lg shadow-md card-shadow">
+                    <div class="h-16 flex items-center justify-center mb-4">
+                        <img src="images/microsoft.png" alt="Microsoft" class="h-12">
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="text-lg font-bold mb-2 text-center line-clamp-2">Build a natural language processing solution with Azure AI Language</h3>
+                        <p class="text-center mb-4">Microsoft</p>
+                        <a href="https://learn.microsoft.com/api/credentials/share/en-us/62908834/B3B4513A9DC64E39?sharingId"
+                           class="custom-button px-4 py-2 rounded-lg w-full text-center block text-sm mt-auto" 
+                           target="_blank">View Certificate</a>
+                    </div>
+                </div>
+
+                <div class="certification-card bg-white p-6 rounded-lg shadow-md card-shadow">
+                    <div class="h-16 flex items-center justify-center mb-4">
+                        <img src="images/Google.png" alt="Google" class="h-12">
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="text-lg font-bold mb-2 text-center line-clamp-2">Google Cybersecurity Specialization</h3>
+                        <p class="text-center mb-4">Google</p>
+                        <a href="https://www.coursera.org/account/accomplishments/specialization/C5JU6MS7GXWP" 
+                           class="custom-button px-4 py-2 rounded-lg w-full text-center block text-sm mt-auto" 
+                           target="_blank">View Certificate</a>
+                    </div>
+                </div>
+
+                <div class="certification-card bg-white p-6 rounded-lg shadow-md card-shadow">
+                    <div class="h-16 flex items-center justify-center mb-4">
+                        <img src="images/Google.png" alt="Google" class="h-12">
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="text-lg font-bold mb-2 text-center line-clamp-2">Google AI Essentials</h3>
+                        <p class="text-center mb-4">Google</p>
+                        <a href="https://www.coursera.org/account/accomplishments/records/F3X85H6N3H2E"
+                           class="custom-button px-4 py-2 rounded-lg w-full text-center block text-sm mt-auto" 
+                           target="_blank">View Certificate</a>
+                    </div>
+                </div>
+
+                <div class="certification-card bg-white p-6 rounded-lg shadow-md card-shadow">
+                    <div class="h-16 flex items-center justify-center mb-4">
+                        <img src="images/Google.png" alt="Google" class="h-12">
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="text-lg font-bold mb-2 text-center line-clamp-2">Foundations: Data, Data, Everywhere</h3>
+                        <p class="text-center mb-4">Google</p>
+                        <a href="https://www.coursera.org/account/accomplishments/records/TO94B21FGBSM"
+                           class="custom-button px-4 py-2 rounded-lg w-full text-center block text-sm mt-auto" 
+                           target="_blank">View Certificate</a>
+                    </div>
+                </div>
+
+                <div class="certification-card bg-white p-6 rounded-lg shadow-md card-shadow">
+                    <div class="h-16 flex items-center justify-center mb-4">
+                        <img src="images/Hackkerank.png" alt="HackerRank" class="h-12">
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="text-lg font-bold mb-2 text-center line-clamp-2">HackerRank Python(Basic)</h3>
+                        <p class="text-center mb-4">HackerRank</p>
+                        <a href="https://www.hackerrank.com/certificates/ec121ccc3f7e" 
+                           class="custom-button px-4 py-2 rounded-lg w-full text-center block text-sm mt-auto" 
+                           target="_blank">View Certificate</a>
+                    </div>
+                </div>
+
+                <div class="certification-card bg-white p-6 rounded-lg shadow-md card-shadow">
+                    <div class="h-16 flex items-center justify-center mb-4">
+                        <img src="images/Infosys.png" alt="Infosys Springboard" class="h-12">
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="text-lg font-bold mb-2 text-center line-clamp-2">Programming Fundamentals using Python - Part 1</h3>
+                        <p class="text-center mb-4">Infosys Springboard</p>
+                        <a href="https://drive.google.com/file/d/1Ate6kUGf_8xhhnPbshfQtRG2S8RBOEPc/view?usp=sharing"
+                           class="custom-button px-4 py-2 rounded-lg w-full text-center block text-sm mt-auto" 
+                           target="_blank">View Certificate</a>
+                    </div>
+                </div>
+
+                <div class="certification-card bg-white p-6 rounded-lg shadow-md card-shadow">
+                    <div class="h-16 flex items-center justify-center mb-4">
+                        <img src="images/Infosys.png" alt="Infosys Springboard" class="h-12">
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="text-lg font-bold mb-2 text-center line-clamp-2">Programming Fundamentals using Python - Part 2</h3>
+                        <p class="text-center mb-4">Infosys Springboard</p>
+                        <a href="https://drive.google.com/file/d/1ndd2zeevh2yIjwec3AItAcTY4WEtWzjg/view?usp=sharing" 
+                           class="custom-button px-4 py-2 rounded-lg w-full text-center block text-sm mt-auto" 
+                           target="_blank">View Certificate</a>
+                    </div>
+                </div>
+
+                <div class="certification-card bg-white p-6 rounded-lg shadow-md card-shadow">
+                    <div class="h-16 flex items-center justify-center mb-4">
+                        <img src="images/Infosys.png" alt="Infosys Springboard" class="h-12">
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="text-lg font-bold mb-2 text-center line-clamp-2">Secure Programmer: Attacks</h3>
+                        <p class="text-center mb-4">Infosys Springboard</p>
+                        <a href="https://drive.google.com/file/d/1525fsrs-YYy_zcLzAnNagvqQySdKkOQs/view?usp=sharing"
+                           class="custom-button px-4 py-2 rounded-lg w-full text-center block text-sm mt-auto" 
+                           target="_blank">View Certificate</a>
+                    </div>
+                </div>
+
+                <div class="certification-card bg-white p-6 rounded-lg shadow-md card-shadow">
+                    <div class="h-16 flex items-center justify-center mb-4">
+                        <img src="images/Infosys.png" alt="Infosys Springboard" class="h-12">
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="text-lg font-bold mb-2 text-center line-clamp-2">Final Exam: Defensive Programmer</h3>
+                        <p class="text-center mb-4">Infosys Springboard</p>
+                        <a href="https://drive.google.com/file/d/1zEzaPzj_kx-503aexffYBlJ4wDu43Bk6/view?usp=sharing" 
+                           class="custom-button px-4 py-2 rounded-lg w-full text-center block text-sm mt-auto" 
+                           target="_blank">View Certificate</a>
+                    </div>
+                </div>
+
+                <div class="certification-card bg-white p-6 rounded-lg shadow-md card-shadow">
+                    <div class="h-16 flex items-center justify-center mb-4">
+                        <img src="images/Infosys.png" alt="Infosys Springboard" class="h-12">
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="text-lg font-bold mb-2 text-center line-clamp-2">Database Management System Part - 1</h3>
+                        <p class="text-center mb-4">Infosys Springboard</p>
+                        <a href="https://drive.google.com/file/d/15APb9jEdsKtjHqSHtMtkgX60tkom2g4e/view?usp=sharing"
+                           class="custom-button px-4 py-2 rounded-lg w-full text-center block text-sm mt-auto" 
+                           target="_blank">View Certificate</a>
+                    </div>
+                </div>
+
+                <div class="certification-card bg-white p-6 rounded-lg shadow-md card-shadow">
+                    <div class="h-16 flex items-center justify-center mb-4">
+                        <img src="images/Infosys.png" alt="Infosys Springboard" class="h-12">
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="text-lg font-bold mb-2 text-center line-clamp-2">Database and SQL</h3>
+                        <p class="text-center mb-4">Infosys Springboard</p>
+                        <a href="https://drive.google.com/file/d/1d4D_jPMHnDEyHRk8JPcpMah0zwQ12v81/view?usp=sharing"
+                           class="custom-button px-4 py-2 rounded-lg w-full text-center block text-sm mt-auto" 
+                           target="_blank">View Certificate</a>
+                    </div>
+                </div>
+
+
+                <div class="certification-card bg-white p-6 rounded-lg shadow-md card-shadow">
+                    <div class="h-16 flex items-center justify-center mb-4">
+                        <img src="images/great learning.jpeg" alt="Great Learning" class="h-12">
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="text-lg font-bold mb-2 text-center line-clamp-2">Project Management</h3>
+                        <p class="text-center mb-4">Great Learning</p>
+                        <a href="https://drive.google.com/file/d/19qg5f7cwB3cW6iniAHZdcpItfohr7pq5/view?usp=sharing"
+                           class="custom-button px-4 py-2 rounded-lg w-full text-center block text-sm mt-auto" 
+                           target="_blank">View Certificate</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+   <!-- Contact Section -->
+   <section id="contact" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">Get in Touch</h2>
+        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+            <div class="space-y-6" data-aos="fade-right">
+                <div class="flex items-center space-x-4">
+                    <img src="images/Gmail.png" alt="Email" class="w-8 h-8">
+                    <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" class="text-gray-600 hover:text-blue-600"><span class="__cf_email__" data-cfemail="d3b8a0bbbaa7bab9e2e2a7baa4b2a1ba93b4beb2babffdb0bcbe">kshitij11tiwari@gmail.com</span></a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <img src="images/Lindln.jpeg" alt="LinkedIn" class="w-8 h-8">
+                    <a href="https://linkedin.com/in/kshitij1112" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600">kshitij1112</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <img src="images/GitHub.png" alt="GitHub" class="w-8 h-8">
+                    <a href="https://github.com/kshitij-1112?tab=repositories" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600">kshitij-1112</a>
+                </div>
+            </div>
+            <form class="space-y-6" data-aos="fade-left">
+                <div>
+                    <input type="text" placeholder="Name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                </div>
+                <div>
+                    <input type="email" placeholder="Email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                </div>
+                <div>
+                    <textarea placeholder="Message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"></textarea>
+                </div>
+                <button type="submit" class="custom-button w-full px-6 py-3 rounded-lg">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+
+<footer class="text-white py-12" style="background-color: #4a3b31;">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="text-2xl font-bold mb-4 md:mb-0 white-text">KSHITIJ</div>
+            <div class="flex-grow flex justify-center mx-6">
+            
+            </div>
+            <div class="flex space-x-6">
+                <a href="#home" class="hover:text-blue-400">Home</a>
+                <a href="#about" class="hover:text-blue-400">About</a>
+                <a href="#skills" class="hover:text-blue-400">Skills</a>
+                <a href="#projects" class="hover:text-blue-400">Projects</a>
+                <a href="#contact" class="hover:text-blue-400">Contact</a>
+            </div>
+        </div>
+        <div class="text-center mt-8 white-text">
+            © 2024 Kshitij Tiwari. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+
+
+<!-- Initialize Scripts -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+
+    // Initialize Typed.js
+    new Typed('#typed-text', {
+        strings: ['Web Developer', 'Cyber Security Enthusiast' , 'Technology Professional'],
+        typeSpeed: 50,
+        backSpeed: 30,
+        backDelay: 1500,
+        loop: true
+    });
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Form submission handler
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        alert('Thank you for your message! I will get back to you soon.');
+        form.reset();
+    });
+</script>
+</body>
+</html>
