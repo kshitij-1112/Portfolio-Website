@@ -30,7 +30,7 @@ export const experience: ExperienceEntry[] = [
     id: "z14",
     role: "Software Engineer",
     org: "Z14 AI Solutions",
-    period: "Dec 2025 — Jun 2026",
+    period: "Dec 2025 — Oct 2026",
     summary:
       "End-to-end ownership of client web platforms, bridging technical delivery with business strategy.",
     bullets: [
